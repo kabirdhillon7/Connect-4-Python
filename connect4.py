@@ -10,11 +10,11 @@ def create_board():
     return board
 
 def drop_piece(board, row, col, piece):
-    board[row][col] == piece
+    board[row][col] = piece
 
 # Check if the top spot in a column is open or not
 def is_valid_location(board, col):
-    return board[ROW_COUNT][col] == 0
+    return board[5][col] == 0
 
 # Finds the next open row available
 def get_next_open_row(board, col):
@@ -22,20 +22,37 @@ def get_next_open_row(board, col):
         if board[r][col] == 0:
             return r
 
-board = create_board()
-print(board)
+# Due to using numpy, this will format the board correctly
+def print_board(board):
+    # flips board over x-axis so it's correctly formatted
+    print(np.flip(board, 0))
 
+
+# Game Set Up
+board = create_board()
+print_board(board)
 game_over = False
 turn = 0
 
+# Gameplay
 while not game_over:
-    # Ask for Player 1 Input
+    # Player 1's turn
     if turn == 0:
         col = int(input("Player 1, make your selection (0-6): "))
 
-    # Ask for Player 2 Input
+        if is_valid_location(board, col):
+            row = get_next_open_row(board, col)
+            drop_piece(board, row, col, 1)
+
+    # Player 2's turn
     else:
         col = int(input("Player 2, make your selection (0-6): "))
+
+        if is_valid_location(board, col):
+            row = get_next_open_row(board, col)
+            drop_piece(board, row, col, 2)
+
+    print_board(board)
 
     turn += 1
     # Alternate between P1 and P2's turns
