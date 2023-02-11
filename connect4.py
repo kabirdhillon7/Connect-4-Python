@@ -1,5 +1,9 @@
 import numpy as np
 
+# Static Variables
+ROW_COUNT = 6
+COLUMN_COUNT = 7
+
 # Initilizes board
 def create_board():
     board = np.zeros((6,7))
@@ -10,10 +14,13 @@ def drop_piece():
 
 # Check if the top spot in a column is open or not
 def is_valid_location(board, col):
-    return board[5][col] == 0
+    return board[ROW_COUNT][col] == 0
 
-def get_next_open_row():
-    pass
+# Finds the next open row available
+def get_next_open_row(board, col):
+    for r in range(ROW_COUNT):
+        if board[r][col] == 0:
+            return r
 
 board = create_board()
 print(board)
