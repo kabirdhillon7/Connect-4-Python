@@ -9,8 +9,8 @@ def create_board():
     board = np.zeros((6,7))
     return board
 
-def drop_piece():
-    pass
+def drop_piece(board, row, col, piece):
+    board[row][col] == piece
 
 # Check if the top spot in a column is open or not
 def is_valid_location(board, col):
@@ -32,6 +32,7 @@ while not game_over:
     # Ask for Player 1 Input
     if turn == 0:
         col = int(input("Player 1, make your selection (0-6): "))
+
     # Ask for Player 2 Input
     else:
         col = int(input("Player 2, make your selection (0-6): "))
