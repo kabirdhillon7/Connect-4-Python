@@ -95,6 +95,8 @@ screen = pygame.display.set_mode(size)
 draw_board(board)
 pygame.display.update()
 
+myfont = pygame.font.SysFont("monospace", 75)
+
 # Gameplay
 while not game_over:
     for event in pygame.event.get():
@@ -112,6 +114,7 @@ while not game_over:
         pygame.display.update()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
+            pygame.draw.rect(screen, BLACK, (0, 0, width, SQUARESSIZE))
             # print(event.pos)
             # Player 1's turn
             if turn == 0:
@@ -123,9 +126,9 @@ while not game_over:
                     drop_piece(board, row, col, 1)
 
                     if winning_move(board, 1):
-                        print("Player 1 Wins!")
+                        label = myfont.render("Player 1 Wins!", 1, RED)
+                        screen.blit(label, (40,10))
                         game_over = True
-                        break;
 
             # Player 2's turn
             else:
@@ -137,9 +140,9 @@ while not game_over:
                     drop_piece(board, row, col, 2)
 
                     if winning_move(board, 2):
-                        print("Player 2 Wins!")
+                        label = myfont.render("Player 2 Wins!", 1, YELLOW)
+                        screen.blit(label, (40, 10))
                         game_over = True
-                        break;
 
             print_board(board)
             draw_board(board)
@@ -148,4 +151,6 @@ while not game_over:
             # Alternate between P1 and P2's turns
             turn = turn % 2
 
+            if game_over:
+                pygame.time.wait(3000)
 
