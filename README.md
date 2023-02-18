@@ -25,13 +25,23 @@ The game is played on a 6x7 grid and players take turns dropping their pieces in
 
 ## Usage
 
-Clone the repository and run the game using Python. The game will prompt players to select a column to drop their pieces into. The game continues until one player wins or the board is filled.
+Clone the repository and run the game using Python. To run the game, you must have Python installed on your computer. Once Python is installed, you can clone the repository and run the following commands in your terminal. 
+
+The game will prompt players to select a column to drop their pieces into. The game continues until one player wins or the board is filled.
 
 ```
-git clone https://github.com/[YOUR_GITHUB_USERNAME]/connect4.git
+git clone https://github.com/kabirdhillon7/connect4.git
 cd connect4
 python connect4.py
 ```
+
+### Playing the Game
+
+The game is played by two players, who take turns dropping their pieces into a vertical board. The goal of the game is to connect four pieces of your own color vertically, horizontally, or diagonally.
+
+To drop a piece into the board, the player must enter the column number they want to drop their piece into. The piece will fall to the lowest available slot in that column.
+
+The game ends when one player connects four pieces in a row, or the board is full with no winner.
 
 ## Files
 
@@ -43,7 +53,8 @@ The following is a list of files in the repository:
 
 The following packages are required to run this project:
 
-- [NumPy](https://numpy.org
+- [NumPy](https://numpy.org)
+- [Pygame](https://github.com/pygame/pygame)
 
 ## Contact
 
