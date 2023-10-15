@@ -1,5 +1,4 @@
 # Connect-4
-[Currently Working On] Building a Connect 4 project using Python!
 Connect 4 is a two-player implementation of the popular [Connect 4 game](https://en.wikipedia.org/wiki/Connect_Four) using Python. 
 
 The game is played on a 6x7 grid and players take turns dropping their pieces into the columns. The first player to connect four pieces vertically, horizontally, or diagonally wins the game.
